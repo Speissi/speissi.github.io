@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Allow: /blog/
+Allow: /img/
+
+# Sitemap
+Sitemap: https://shijun.dev/sitemap.xml
+
+# Crawl delay
+Crawl-delay: 10 
