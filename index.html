@@ -6,36 +6,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
     content="Shijun Wang - Senior Software Engineer at Unity with experience in DevOps, site reliability, and distributed systems.">
-  <meta name="keywords" content="Shijun Wang, Software Engineer, Unity, DevOps, Site Reliability, Software Development">
+  <meta name="keywords" content="Shijun Wang, Software Engineer, Unity, DevOps, Site Reliability, Platform Engineering">
   <meta name="author" content="Shijun Wang">
   <meta name="robots" content="index, follow">
-  <!-- Open Graph / Social Media -->
-  <meta property="og:title" content="Shijun Wang - Senior Software Engineer">
+  <meta property="og:title" content="Shijun Wang">
   <meta property="og:description"
     content="Senior Software Engineer at Unity with experience in DevOps and distributed systems">
   <meta property="og:url" content="https://shijun.dev/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://shijun.dev/img/profile.jpg">
-  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Shijun Wang - Senior Software Engineer">
+  <meta name="twitter:title" content="Shijun Wang">
   <meta name="twitter:description"
     content="Senior Software Engineer at Unity with experience in DevOps and distributed systems">
   <meta name="twitter:image" content="https://shijun.dev/img/profile.jpg">
-  <title>Shijun Wang - Senior Software Engineer</title>
+  <title>Shijun Wang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <link rel="canonical" href="https://shijun.dev/">
+  <script>
+    (function () {
+      const saved = localStorage.getItem('theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (saved === 'dark' || (!saved && prefersDark)) {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
 </head>
 
 <body>
   <nav class="navbar">
     <div class="nav-content">
-      <a href="index.html" class="nav-brand">Shijun Wang</a>
-      <ul class="nav-links">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="blog.html">Blog</a></li>
-      </ul>
+      <a href="/" class="nav-brand">Shijun Wang</a>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon" id="themeIcon"></i>
+      </button>
     </div>
   </nav>
 
@@ -43,20 +52,18 @@
     <section class="hero">
       <div class="hero-content">
         <div class="hero-text">
-          <h1>Hi, I'm <span class="highlight">Shijun Wang</span></h1>
-          <p class="subtitle">Senior Software Engineer at Unity</p>
+          <span class="eyebrow">Senior Software Engineer</span>
+          <h1>Hi, I'm Shijun.</h1>
           <p class="description">
-            I'm a senior software engineer with extensive experience in DevOps engineering, site reliability engineering
-            and platform engineering.
-            Currently working at Unity on developer experience, previously at Noice where I focused on building scalable
-            infrastructure and improving system reliability.
+            I build reliable, scalable infrastructure. Currently at Unity working on developer experience —
+            previously at Noice focused on platform engineering and site reliability.
           </p>
-          <div class="social-links">
-            <a href="https://linkedin.com/in/shijun-wang" target="_blank" class="social-icon">
-              <i class="fab fa-linkedin"></i>
+          <div class="cta-group">
+            <a href="https://linkedin.com/in/shijun-wang" target="_blank" rel="noopener" class="btn btn-primary">
+              <i class="fab fa-linkedin"></i> LinkedIn
             </a>
-            <a href="https://github.com/speissi" target="_blank" class="social-icon">
-              <i class="fab fa-github"></i>
+            <a href="https://github.com/speissi" target="_blank" rel="noopener" class="btn btn-ghost">
+              <i class="fab fa-github"></i> GitHub
             </a>
           </div>
         </div>
@@ -65,11 +72,56 @@
         </div>
       </div>
     </section>
+
+    <section class="section">
+      <div class="section-inner">
+        <p class="section-label">Experience</p>
+        <h2>Where I've worked</h2>
+        <div class="experience-list">
+          <div class="experience-item">
+            <div class="exp-header">
+              <div>
+                <h3>Unity Technologies</h3>
+                <p class="role">Senior Software Engineer</p>
+              </div>
+              <span class="date">2023 – Present</span>
+            </div>
+            <p class="exp-desc">Working on developer experience, improving tooling and infrastructure for game developers worldwide.</p>
+          </div>
+          <div class="experience-item">
+            <div class="exp-header">
+              <div>
+                <h3>Noice</h3>
+                <p class="role">Software Engineer</p>
+              </div>
+              <span class="date">2021 – 2023</span>
+            </div>
+            <p class="exp-desc">Built scalable infrastructure and improved system reliability for a live audio streaming platform.</p>
+          </div>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Shijun Wang. All rights reserved.</p>
+    <p>&copy; 2026 Shijun Wang</p>
   </footer>
+  <script>
+    const toggle = document.getElementById('themeToggle');
+    const icon = document.getElementById('themeIcon');
+
+    function applyTheme(dark) {
+      document.documentElement.setAttribute('data-theme', dark ? 'dark' : 'light');
+      icon.className = dark ? 'fas fa-sun' : 'fas fa-moon';
+      localStorage.setItem('theme', dark ? 'dark' : 'light');
+    }
+
+    applyTheme(document.documentElement.getAttribute('data-theme') === 'dark');
+
+    toggle.addEventListener('click', function () {
+      applyTheme(document.documentElement.getAttribute('data-theme') !== 'dark');
+    });
+  </script>
 </body>
 
 </html>
