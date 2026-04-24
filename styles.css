@@ -8,6 +8,7 @@
   --surface: #ffffff;
   --bg: #f8fafc;
   --border: rgba(15, 23, 42, 0.08);
+  --navbar-bg: rgba(248, 250, 252, 0.75);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.06);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.08);
   --radius: 12px;
@@ -24,6 +25,7 @@
   --surface: #1e293b;
   --bg: #0f172a;
   --border: rgba(255, 255, 255, 0.08);
+  --navbar-bg: rgba(15, 23, 42, 0.75);
   --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
   --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
@@ -54,7 +56,7 @@ body {
   inset: 0 0 auto 0;
   z-index: 100;
   padding: 1rem 2rem;
-  background: rgba(248, 250, 252, 0.85);
+  background: var(--navbar-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border);
@@ -252,10 +254,24 @@ body {
 }
 
 .experience-item h3 {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--text-1);
-  margin-bottom: 0.2rem;
+}
+
+.role-list {
+  list-style: none;
+  margin: 0.75rem 0 1rem;
+  padding-left: 1rem;
+  border-left: 2px solid var(--border);
+}
+
+.role-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.2rem 0;
 }
 
 .role {
@@ -264,18 +280,25 @@ body {
   font-weight: 600;
 }
 
+.role-date {
+  font-size: 0.8125rem;
+  color: var(--text-3);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
 .date {
   font-size: 0.875rem;
   color: var(--text-3);
   white-space: nowrap;
   font-variant-numeric: tabular-nums;
-  padding-top: 0.15rem;
 }
 
 .exp-desc {
   font-size: 0.9375rem;
   color: var(--text-2);
   line-height: 1.7;
+  margin-top: 0.25rem;
 }
 
 /* Footer */
@@ -335,5 +358,10 @@ footer {
   .exp-header {
     flex-direction: column;
     gap: 0.2rem;
+  }
+
+  .role-list li {
+    flex-direction: column;
+    gap: 0.1rem;
   }
 }
